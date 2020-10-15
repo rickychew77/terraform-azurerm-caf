@@ -164,4 +164,6 @@ variable shared_services {
 variable monitoring {
   default = {}
 }
-
+variable shared_image_gallery {
+  default = {}
+}

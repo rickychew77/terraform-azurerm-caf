@@ -56,7 +56,7 @@ locals {
   }
 
   storage = {
-    storage_account_blobs      = try(var.storage.storage_account_blobs, {})
+    storage_account_blobs = try(var.storage.storage_account_blobs, {})
   }
 
   networking = {
@@ -104,10 +104,10 @@ locals {
   }
 
   shared_services = {
-    recovery_vaults = try(var.shared_services.recovery_vaults, {})
-    automations     = try(var.shared_services.automations, {})
-    monitoring      = try(var.shared_services.monitoring, {})
-    shared_image_gallery = try(var.shared_services.shared_image_gallery {})
+    recovery_vaults      = try(var.shared_services.recovery_vaults, {})
+    automations          = try(var.shared_services.automations, {})
+    monitoring           = try(var.shared_services.monitoring, {})
+    shared_image_gallery = try(var.shared_services.shared_image_gallery, {})
   }
 
   enable = {

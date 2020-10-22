@@ -72,7 +72,7 @@ resource "azurerm_app_service" "app_service" {
 
         content {
           ip_address                = lookup(var.settings.site_config.ip_restriction, "ip_address", null)
-          virtual_network_subnet_id = lookup(var.settings.site_config.ip_restriction, "virtual_network_subnet_id", null)
+          virtual_network_subnet_id = try(module.application_gateways[each.agw_key].gateway_ip_configuration.subnet_id, try(module.azurerm.app_service_plan[each.asp_key].app_service_environment_id.subnet_id, lookup(var.settings.site_config.ip_restriction, "virtual_network_subnet_id", null)))
         }
       }
     }
